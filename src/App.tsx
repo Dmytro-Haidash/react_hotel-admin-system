@@ -1,17 +1,18 @@
-import './App.scss'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { Content } from './components/Content'
+import { NotFoundPage } from './components/NotFoundPage/NotFoundPage'
+import { MessageContainer } from './components/MessageNotification'
+import './App.scss'
 
 function App() {
-
   return (
     <div className='page'>
+      <MessageContainer />
+
       <Routes>
         <Route path="/" element={<Content />}>
-          {/* <Route path='rooms' element={<div /> } />
-          <Route path="tabs/:tabId?" element={<div />} /> */}
           <Route path="/home" element={<Navigate to="/" />} />
-          <Route path="*" element={<h1 className="title">Page not found</h1>} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </div>
